@@ -6,8 +6,9 @@ pipeline {
         stage('build') {
             steps {
                 sh '''
-                    python3 --version
-                    echo "we have python already installed"
+                    docker build -t jenkins-python-tut:${env.BUILD_ID} .
+                    docker tag jenkins-python-tut:${env.BUILD_ID} anas7m/jenkins-python-tut:${env.BUILD_ID}
+                    docker push anas7m/jenkins-python-tut:${env.BUILD_ID}
                     '''
             }
         }
