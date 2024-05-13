@@ -5,7 +5,7 @@ pipeline {
         stage('build') {
             steps {
                 sh '''
-                    python --version
+                    python3 --version
                     echo "we have python already installed"
                     '''
             }
