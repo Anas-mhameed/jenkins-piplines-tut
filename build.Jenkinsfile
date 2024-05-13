@@ -6,9 +6,10 @@ pipeline {
         stage('build') {
             steps {
                 sh '''
-                    docker build -t jenkins-python-tut:${env.BUILD_ID} .
-                    docker tag jenkins-python-tut:${env.BUILD_ID} anas7m/jenkins-python-tut:${env.BUILD_ID}
-                    docker push anas7m/jenkins-python-tut:${env.BUILD_ID}
+                    tag=${BUILD_TAG}
+                    docker build -t jenkins-python-tut:$tag .
+                    docker tag jenkins-python-tut:$tag anas7m/jenkins-python-tut:$tag
+                    docker push anas7m/jenkins-python-tut:$tag
                     '''
             }
         }
