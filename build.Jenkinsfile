@@ -1,10 +1,10 @@
 /* Requires the Docker Pipeline plugin */
 pipeline {
    agent { 
-            node {
-               label = 'docker-agent-python'
+        node {
+            label 'docker-agent-python'
             }
-         }
+      }
     stages {
         stage('build') {
             steps {
